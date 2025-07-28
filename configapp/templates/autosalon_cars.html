@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}{{ salon.title }} - Mashinalar{% endblock %}
+
+{% block content %}
+<h2>{{ salon.title }} salonidagi mashinalar</h2>
+
+{% if cars %}
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5>{{ car.model }}</h5>
+                    <p>Narxi: {{ car.price }} so‘m</p>
+                    <p>Yili: {{ car.year }}</p>
+                    <p>Rangi: {{ car.color }}</p>
+                    <p>Brend: {{ car.brand.title }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Bu salon hozircha hech qanday mashinaga ega emas.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Bosh sahifa{% endblock %}
+
+{% block content %}
+<h1>Autosalonlar</h1>
+<div class="row">
+    {% for salon in salons %}
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ salon.title }}</h5>
+                <p class="card-text">{{ salon.context|truncatewords:20 }}</p>
+                <a href="{% url 'autosalon_detail' salon.pk %}" class="btn btn-primary">Batafsil</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ salon.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ salon.title }}</h1>
+<p>{{ salon.context }}</p>
+<p><strong>Email:</strong> {{ salon.email }}</p>
+<p><strong>Telefon:</strong> {{ salon.phone }}</p>
+<p><strong>Manzil:</strong> {{ salon.adress }}</p>
+<img src="{{ salon.image.url }}" class="img-fluid" alt="{{ salon.title }}">
+
+<a href="{% url 'autosalon_cars' salon.pk %}" class="btn btn-success mt-3">Mashinalarni ko‘rish</a>
+{% endblock %}
