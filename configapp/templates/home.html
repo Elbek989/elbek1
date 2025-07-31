@@ -2,11 +2,14 @@
 {% block title %}Bosh sahifa{% endblock %}
 
 {% block content %}
-<h1>Autosalonlar</h1>
+<h1 class="mb-4">Autosalonlar</h1>
 <div class="row">
     {% for salon in salons %}
     <div class="col-md-6 mb-4">
-        <div class="card">
+        <div class="card h-100 shadow-sm">
+            {% if salon.image %}
+                <img src="{{ salon.image.url }}" class="card-img-top" alt="{{ salon.title }}">
+            {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{ salon.title }}</h5>
                 <p class="card-text">{{ salon.context|truncatewords:20 }}</p>
@@ -14,6 +17,27 @@
             </div>
         </div>
     </div>
+    {% empty %}
+    <p>Hozircha hech qanday autosalon mavjud emas.</p>
+    {% endfor %}
+</div>
+
+<hr class="my-5">
+
+<h2 class="mb-4">Avto Brendlar</h2>
+<div class="row">
+    {% for brand in brands %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ brand.title }}</h5>
+                <p class="card-text">{{ brand.context|truncatewords:20 }}</p>
+                <p class="text-muted small">Qo‘shilgan: {{ brand.created_at|date:"Y-m-d" }}</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Hozircha hech qanday brend mavjud emas.</p>
     {% endfor %}
 </div>
 {% endblock %}

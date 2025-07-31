@@ -1,10 +1,17 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Autosalon, Car
+from .models import Autosalon, Car,Brand
 from .forms import BrandForm, AutosalonForm, CarForm
 
+
 def home(request):
+    brands = Brand.objects.all()
     salons = Autosalon.objects.all()
-    return render(request, 'home.html', {'salons': salons})
+    context = {
+        'brands': brands,
+        'salons': salons,
+    }
+    return render(request, 'home.html', context)
+
 
 def autosalon_detail(request, pk):
     salon = get_object_or_404(Autosalon, pk=pk)
