@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: DejaVu Sans, sans-serif; }
+        img { max-width: 400px; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>{{ car.name }}</h1>
+    <p><strong>Brend:</strong> {{ car.brand }}</p>
+    <p><strong>Yili:</strong> {{ car.year }}</p>
+    <p><strong>Narxi:</strong> {{ car.price }}</p>
+    <p><strong>Qo‘shimcha:</strong> {{ car.description }}</p>
+
+    {% if car.image %}
+        <img src="{{ car.image.url }}" alt="Mashina rasmi">
+    {% endif %}
+
+    <h3>QR Kod:</h3>
+    <img src="data:image/png;base64,{{ qr_code.getvalue|b64encode }}" />
+</body>
+</html>

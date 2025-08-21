@@ -4,12 +4,14 @@
 {% block content %}
 <h2>{{ salon.title }} salonidagi mashinalar</h2>
 
+
 {% if cars %}
     <div class="row">
         {% for car in cars %}
         <div class="col-md-4 mb-4">
             <div class="card">
                 <div class="card-body">
+                   <a href="{% url 'detail_car' car.id %}" class="btn btn-danger">Batafsil (PDF)</a>
                     <h5>{{ car.model }}</h5>
                     <p>Narxi: {{ car.price }} so‘m</p>
                     <p>Yili: {{ car.year }}</p>

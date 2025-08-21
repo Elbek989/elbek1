@@ -36,7 +36,17 @@
             </div>
         </div>
     </nav>
-
+{% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'add_car' %}">+ Add Car</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">👋 {{ user.username }}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Chiqish</a>
+    </li>
+{% endif %}
 
     <div class="container mt-4">
         {% block content %}
