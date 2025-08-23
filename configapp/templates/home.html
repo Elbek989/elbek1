@@ -27,23 +27,5 @@
 
 <hr class="my-5">
 
-<h2 class="mb-4">Avtomobillar</h2>
-<div class="row">
-    {% for car in cars %}
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm">
-            {% if car.image %}
-                <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.name }}">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{ car.name }}</h5>
-                <p class="card-text">{{ car.description|truncatewords:20 }}</p>
-                <a href="{% url 'detail_car' car.id %}" class="btn btn-danger">Batafsil (PDF)</a>
-            </div>
-        </div>
-    </div>
-    {% empty %}
-    <p>Hozircha hech qanday mashina mavjud emas.</p>
-    {% endfor %}
-</div>
+
 {% endblock %}
